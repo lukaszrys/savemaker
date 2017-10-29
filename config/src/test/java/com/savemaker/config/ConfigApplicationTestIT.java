@@ -1,4 +1,4 @@
-package com.savemaker;
+package com.savemaker.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ConfigApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ConfigApplicationTest {
+public class ConfigApplicationTestIT {
 
     @Value("${local.server.port}")
     private int port = 0;

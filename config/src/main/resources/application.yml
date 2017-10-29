@@ -4,6 +4,7 @@ server:
 spring:
   cloud:
     config:
+      label: develop
       server:
         git:
           uri: https://github.com/lukaszrys/savemaker-config
