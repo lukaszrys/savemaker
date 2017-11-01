@@ -1,8 +1,8 @@
 spring:
   application:
-    name: registry
+    name: gateway
   cloud:
     config:
       uri: ${CONFIG_SERVER_URL:http://localhost:8888}
-      password: ${CONFIG_PASSWORD:password}
       username: user
+      password: ${CONFIG_PASSWORD:password}

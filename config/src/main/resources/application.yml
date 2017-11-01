@@ -9,3 +9,7 @@ spring:
         git:
           uri: https://github.com/lukaszrys/savemaker-config
           basedir: target/config
+
+security:
+  user:
+    password: ${CONFIG_PASSWORD:password}

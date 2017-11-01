@@ -1,4 +1,4 @@
-package com.savemaker.config;
+package com.savemaker.gateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,18 +12,22 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ConfigApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class ConfigApplicationTestIT {
+@SpringBootTest(classes = GatewayApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class GatewayApplicationTest {
 
     @Value("${local.server.port}")
     private int port = 0;
 
     @Test
-    public void configurationSuccess() {
+    public void checkRoutes() {
         @SuppressWarnings("rawtypes")
-        ResponseEntity<Map> entity = new TestRestTemplate().getForEntity("http://localhost:" + port + "/app/cloud", Map.class);
+        ResponseEntity<Map> entity = new TestRestTemplate().getForEntity("http://localhost:" + port + "/routes", Map.class);
         assertEquals(HttpStatus.OK, entity.getStatusCode());
+        assertTrue(entity.getBody().containsKey("/uaa/**"));
+        assertTrue(entity.getBody().containsKey("/account/**"));
     }
+
 }

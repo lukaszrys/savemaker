@@ -1,0 +1,25 @@
+server:
+  port: 4000
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    authorization:
+      path: /uaa/**
+      serviceId: authorization
+      url: ${AUTHORIZATION_SERVER_URL:http://localhost:5000}
+      stripPrefix: false
+      sensitiveHeaders:
+    account:
+      path: /account/**
+      serviceId: account
+      url: ${ACCOUNT_SERVER_URL:http://localhost:5000}
+      stripPrefix: false
+      sensitiveHeaders:
+
+management:
+  security:
+    enabled: false
