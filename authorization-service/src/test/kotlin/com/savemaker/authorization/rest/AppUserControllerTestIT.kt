@@ -1,6 +1,8 @@
-package com.savemaker.authorization.domain
+package com.savemaker.authorization.rest
 
 import com.savemaker.authorization.IntegrationTestConfig
+import com.savemaker.authorization.domain.AppUser
+import com.savemaker.authorization.domain.repository.AppUserRepository
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -23,7 +25,7 @@ class AppUserControllerTestIT : IntegrationTestConfig(){
     @Test
     fun shouldRegisterUser() {
         //Given
-        val user = AppUser("admin","admin","admin@admin.com")
+        val user = AppUser("admin", "admin", "admin@admin.com")
 
         //When
         val responseUser : ResponseEntity<AppUser> = testRestTemplate.postForEntity(registerUri(), user, AppUser::class.java)

@@ -30,6 +30,12 @@ class OAuth2AuthorizationConfig : AuthorizationServerConfigurerAdapter() {
                 .authorizedGrantTypes("refresh_token", "password")
                 .secret("web-secret")
                 .scopes("ui")
+                    .and()
+                .withClient("mail")
+                .secret("mail")
+                .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes("server")
+
     }
 
     override fun configure(endpoints: AuthorizationServerEndpointsConfigurer) {

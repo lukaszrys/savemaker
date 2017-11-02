@@ -1,5 +1,6 @@
-package com.savemaker.authorization.domain
+package com.savemaker.authorization.domain.repository
 
+import com.savemaker.authorization.domain.AppUser
 import org.springframework.data.repository.CrudRepository
 import java.util.*
 

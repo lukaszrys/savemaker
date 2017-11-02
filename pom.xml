@@ -12,6 +12,7 @@
         <module>registry</module>
         <module>gateway</module>
         <module>authorization-service</module>
+        <module>mail-service</module>
     </modules>
 
 </project>

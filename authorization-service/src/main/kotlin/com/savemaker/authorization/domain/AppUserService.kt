@@ -1,10 +1,10 @@
 package com.savemaker.authorization.domain
 
+import com.savemaker.authorization.domain.repository.AppUserRepository
 import com.savemaker.authorization.exception.UsernameFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class AppUserService constructor(@Autowired repository : AppUserRepository){

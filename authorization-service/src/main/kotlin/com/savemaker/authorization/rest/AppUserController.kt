@@ -1,5 +1,7 @@
-package com.savemaker.authorization.domain
+package com.savemaker.authorization.rest
 
+import com.savemaker.authorization.domain.AppUser
+import com.savemaker.authorization.domain.AppUserService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
