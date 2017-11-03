@@ -1,5 +1,6 @@
-package com.savemaker.mail.domain;
+package com.savemaker.mail.service;
 
+import com.savemaker.mail.domain.MailMessage;
 import org.springframework.stereotype.Component;
 
 @Component

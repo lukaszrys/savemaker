@@ -19,8 +19,8 @@ public class MailMessageController {
 
     private IMailMessageService mailMessageService;
 
-    @PreAuthorize("#oauth2.hasScope('server')")
-    @PostMapping("")
+    @PreAuthorize("#oauth2.hasScope('service')")
+    @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
     void addMail(@RequestBody MailMessage mailMessage){
         mailMessageService.addMail(mailMessage.getSubject(), mailMessage.getContent(), mailMessage.getRecipient());

@@ -34,7 +34,13 @@ class OAuth2AuthorizationConfig : AuthorizationServerConfigurerAdapter() {
                 .withClient("mail")
                 .secret("mail")
                 .authorizedGrantTypes("client_credentials", "refresh_token")
-                .scopes("server")
+                .scopes("service")
+                    .and()
+                .withClient("account")
+                .secret("account")
+                .authorizedGrantTypes("client_credentials", "refresh_token")
+                .scopes("service")
+
 
     }
 

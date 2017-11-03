@@ -1,16 +1,13 @@
 package com.savemaker.mail;
 
+import com.savemaker.commons.oauth2.CloudOAuth2ResourceApplication;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
-@EnableDiscoveryClient
-public class MailApplication {
+@EnableScheduling
+public class MailApplication extends CloudOAuth2ResourceApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(MailApplication.class, args);
     }
-
-    //TODO("authorization")
 }

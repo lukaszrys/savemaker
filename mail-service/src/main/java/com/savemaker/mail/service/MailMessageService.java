@@ -2,7 +2,6 @@ package com.savemaker.mail.service;
 
 import com.savemaker.mail.domain.IMailMessageService;
 import com.savemaker.mail.domain.MailMessage;
-import com.savemaker.mail.domain.MailMessageBuilder;
 import com.savemaker.mail.domain.repository.MailMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -44,6 +43,7 @@ public class MailMessageService implements IMailMessageService{
         mail.setText(message.getContent());
         javaMailSender.send(mail);
         message.send();
+        mailMessageRepository.save(message);
     }
 
     //TODO:("move it somewhere else")

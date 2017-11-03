@@ -1,6 +1,6 @@
 package com.savemaker.mail.domain;
 
-import com.google.common.annotations.VisibleForTesting;
+import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,20 +12,15 @@ import java.time.LocalDateTime;
 public class MailMessage {
 
     @Id
-    private long id;
-
+    private ObjectId id;
     @Email
     @NotNull
     private String recipient;
-
     @NotNull
     private String subject;
-
     @NotNull
     private String content;
-
     private boolean sent;
-
     private LocalDateTime sentDate;
 
     public MailMessage(String recipient, String subject, String content) {
@@ -35,7 +30,12 @@ public class MailMessage {
         this.sent = false;
     }
 
-    public long getId() {
+    //TODO("jacson")
+    public MailMessage(){
+        this("","","");
+    }
+
+    public ObjectId getId() {
         return id;
     }
 

@@ -14,7 +14,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = RegistryApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = RegistryApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RegistryApplicationTestIT {
 
     @Value("${local.server.port}")

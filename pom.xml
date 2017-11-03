@@ -8,11 +8,13 @@
   <name>savemaker</name>
 
   	<modules>
+        <module>commons</module>
         <module>config</module>
         <module>registry</module>
         <module>gateway</module>
         <module>authorization-service</module>
         <module>mail-service</module>
+        <module>account</module>
     </modules>
 
 </project>
