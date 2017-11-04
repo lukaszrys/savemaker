@@ -3,9 +3,12 @@ package com.savemaker.mail.service;
 import com.savemaker.mail.domain.IMailMessageService;
 import com.savemaker.mail.domain.MailMessage;
 import com.savemaker.mail.domain.repository.MailMessageRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.mail.MailParseException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,8 @@ import java.util.List;
 
 @Service
 public class MailMessageService implements IMailMessageService{
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     private MailMessageRepository mailMessageRepository;
     private JavaMailSender javaMailSender;
@@ -37,13 +42,20 @@ public class MailMessageService implements IMailMessageService{
     }
 
     private void sendMail(MailMessage message) {
-        SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setTo(message.getRecipient());
-        mail.setSubject(message.getSubject());
-        mail.setText(message.getContent());
-        javaMailSender.send(mail);
-        message.send();
-        mailMessageRepository.save(message);
+        try {
+            SimpleMailMessage mail = new SimpleMailMessage();
+            mail.setTo(message.getRecipient());
+            mail.setSubject(message.getSubject());
+            mail.setText(message.getContent());
+            javaMailSender.send(mail);
+        } catch (MailParseException e) {
+            final String errorMessage = "Could not parse mail for message with id = " + message.getId();
+            log.error(errorMessage);
+            message.setError(errorMessage);
+        } finally {
+            message.send();
+            mailMessageRepository.save(message);
+        }
     }
 
     //TODO:("move it somewhere else")

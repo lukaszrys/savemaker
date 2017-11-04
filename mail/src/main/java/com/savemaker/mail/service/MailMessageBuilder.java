@@ -20,7 +20,7 @@ public class MailMessageBuilder {
     }
 
     public MailMessageBuilder content(String content){
-        this.recipient = content;
+        this.content = content;
         return this;
     }
 

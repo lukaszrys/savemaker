@@ -2,6 +2,7 @@ package com.savemaker.authorization
 
 import com.savemaker.authorization.security.OAuthUserDetailsService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer
@@ -16,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 @EnableAuthorizationServer
 class OAuth2AuthorizationConfig : AuthorizationServerConfigurerAdapter() {
 
-    var tokenStore : TokenStore = InMemoryTokenStore()
+    //var tokenStore : TokenStore = InMemoryTokenStore()
 
     @Autowired
     lateinit var authenticationManager : AuthenticationManager
@@ -44,11 +45,14 @@ class OAuth2AuthorizationConfig : AuthorizationServerConfigurerAdapter() {
 
     }
 
+    fun tokenStore() : TokenStore {
+        return InMemoryTokenStore()
+    }
     override fun configure(endpoints: AuthorizationServerEndpointsConfigurer) {
-        endpoints.tokenStore(tokenStore).authenticationManager(authenticationManager).userDetailsService(oAuthUserDetailsService)
+        endpoints.tokenStore(tokenStore()).authenticationManager(authenticationManager).userDetailsService(oAuthUserDetailsService)
     }
 
     override fun configure(security: AuthorizationServerSecurityConfigurer) {
-        security.tokenKeyAccess("permiAll()").checkTokenAccess("isAuthenticated()")
+        security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()")
     }
 }

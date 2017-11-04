@@ -1,6 +1,7 @@
 package com.savemaker.mail.domain;
 
 import org.bson.types.ObjectId;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,8 +23,9 @@ public class MailMessage {
     private String content;
     private boolean sent;
     private LocalDateTime sentDate;
+    private String error;
 
-    public MailMessage(String recipient, String subject, String content) {
+    public MailMessage(@JsonProperty("recipient") String recipient, @JsonProperty("subject") String subject, @JsonProperty("content") String content) {
         this.recipient = recipient;
         this.subject = subject;
         this.content = content;
@@ -62,5 +64,13 @@ public class MailMessage {
 
     public LocalDateTime getSentDate() {
         return sentDate;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 }

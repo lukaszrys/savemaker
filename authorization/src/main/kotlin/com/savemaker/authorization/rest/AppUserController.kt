@@ -5,6 +5,7 @@ import com.savemaker.authorization.domain.AppUserService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
+import javax.servlet.http.HttpServletRequest
 
 
 @RestController
@@ -18,7 +19,7 @@ class AppUserController constructor(appUserService : AppUserService){
         return appUserService.registerUser(appUser)
     }
 
-    @GetMapping(value = "/current")
+    @GetMapping("/current")
     fun getUser(principal: Principal): Principal {
         return principal
     }

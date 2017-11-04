@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 
 @FeignClient(name = "mail")
 interface MailServiceFeign {
-    @PostMapping(value = "/mail/", consumes = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))
+    @PostMapping("/mail/")
     @ResponseStatus(HttpStatus.CREATED)
     fun addMail(@RequestBody mailMessage: MailMessageDto)
 }
