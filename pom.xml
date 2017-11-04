@@ -12,8 +12,8 @@
         <module>config</module>
         <module>registry</module>
         <module>gateway</module>
-        <module>authorization-service</module>
-        <module>mail-service</module>
+        <module>authorization</module>
+        <module>mail</module>
         <module>account</module>
     </modules>
 

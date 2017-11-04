@@ -1,7 +1,7 @@
 package com.savemaker.account.rest
 
 import com.savemaker.account.service.AccountService
-import com.savemaker.account.dto.AppUserDto
+import com.savemaker.account.domain.dto.AppUserDto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
