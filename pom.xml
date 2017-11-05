@@ -15,6 +15,7 @@
         <module>authorization</module>
         <module>mail</module>
         <module>account</module>
+        <module>hystrix-dashboard</module>
     </modules>
 
 </project>
