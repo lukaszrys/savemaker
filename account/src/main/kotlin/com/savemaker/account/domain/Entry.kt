@@ -1,6 +1,7 @@
 package com.savemaker.account.domain
 
 import org.bson.types.ObjectId
+import org.codehaus.jackson.annotate.JsonIgnore
 import org.jetbrains.annotations.NotNull
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.DBRef
@@ -25,5 +26,5 @@ class Entry constructor(frequency: Frequency, amount: BigDecimal, type: EntryTyp
     var account = account
     @NotNull
     val currency = currency
-    val createdAt: LocalDateTime = LocalDateTime.now()
+    //val createdAt: LocalDateTime = LocalDateTime.now()
 }

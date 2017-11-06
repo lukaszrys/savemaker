@@ -8,6 +8,7 @@ import com.savemaker.account.domain.repository.EntryRepository
 import com.savemaker.account.service.exception.NotFoundException
 import com.savemaker.account.service.observer.EntryListener
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
 class EntryService constructor(@Autowired accountRepository: AccountRepository, @Autowired entryRepository: EntryRepository): EntryListener {

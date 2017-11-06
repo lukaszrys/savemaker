@@ -13,14 +13,14 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @Configuration
 @RunWith(SpringRunner::class)
-@SpringBootTest(classes = arrayOf(AccountApplication::class), webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = arrayOf(AccountApplicationTest::class), webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 //TODO("extract to commons?")
 abstract class IntegrationTestConfig : AbstractMongoConfiguration() {
 
     @Value("\${local.server.port}")
     protected val port = 0
 
-    protected val testRestTemplate : TestRestTemplate = TestRestTemplate()
+    protected var testRestTemplate : TestRestTemplate = TestRestTemplate()
 
     @Autowired
     lateinit var env : Environment
