@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.security.test.context.support.WithMockUser
 import java.math.BigDecimal
 
-class AccountControllerTestIT : IntegrationTestConfig(), AccountEntryData {
+class EntryControllerTestIT : IntegrationTestConfig(), AccountEntryData {
 
     @Autowired
     private lateinit var accountRepository : AccountRepository

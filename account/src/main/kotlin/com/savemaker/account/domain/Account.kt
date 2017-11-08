@@ -11,5 +11,5 @@ class Account constructor(email: String, age : Long, profession: String, wallet:
     var age: Long = age
     var profession = profession
     var wallet = wallet
-    //var createdAt: LocalDateTime = LocalDateTime.now()
+    var createdAt: LocalDateTime = LocalDateTime.now()
 }
