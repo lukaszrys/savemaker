@@ -16,6 +16,7 @@
         <module>mail</module>
         <module>account</module>
         <module>hystrix-dashboard</module>
+        <module>account-statistics</module>
     </modules>
 
 </project>

@@ -12,6 +12,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -49,7 +51,8 @@ public class MailMessageServiceTest {
     public void shouldSendUnsentMails(){
         // Given
         MailMessage mailMessage = simpleMailMessage();
-        List<MailMessage> mailMessages = List.of(mailMessage);
+        List<MailMessage> mailMessages = new LinkedList<>();
+        mailMessages.add(mailMessage);
         when(mailMessageRepository.findBySent(eq(false), any())).thenReturn(mailMessages);
         // When
         tested.sendUnsentMails(5);
