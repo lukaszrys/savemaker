@@ -1,3 +1,5 @@
+https://travis-ci.org/lukaszrys/savemaker.svg?branch=develop
+
 # savemaker
 Java and Kotlin Microservices, Spring Cloud, Eureka
 
