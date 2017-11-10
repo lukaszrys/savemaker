@@ -1,4 +1,4 @@
-https://travis-ci.org/lukaszrys/savemaker.svg?branch=develop
+[![Build Status](https://travis-ci.org/lukaszrys/savemaker.svg?branch=develop)](https://travis-ci.org/lukaszrys/savemaker)
 
 # savemaker
 Java and Kotlin Microservices, Spring Cloud, Eureka
